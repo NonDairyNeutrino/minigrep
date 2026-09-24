@@ -1,0 +1,22 @@
+# minigrep
+
+## Introduction
+
+`minigrep` is a program much like `grep` and `ripgrep`, but is about as simple as it could be:
+
+```
+minigrep needle path/to/haystack
+```
+
+searches through the file `haystack` line by line and prints the lines that contain `needle`.
+
+## Error Handling
+
+`minigrep needle` returns early telling that there aren't enough arguments because a file
+wasn't given.
+
+## Case Sensitivity
+
+`minigrep` takes the environment variable `IGNORE_CASE=1` (or any other value) to mean that
+case should be ignored e.g. `IGNORE_CASE=1 minigrep to poem.txt` produces the same output as
+`IGNORE_CASE=1 minigrep to poem.txt`.
