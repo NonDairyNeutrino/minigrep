@@ -1,5 +1,8 @@
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    vec![]
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 #[cfg(test)]
@@ -10,9 +13,9 @@ mod tests {
     fn one_result() {
         let query: &str = "duct";
         let contents: &str = "\
-        Rust:
-        saft, fast, productive.
-        Pick three.";
+Rust:
+safe, fast, productive.
+Pick three.";
         assert_eq!(vec!["safe, fast, productive."], search(query, contents));
     }
 }
